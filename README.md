@@ -1,2 +1,2 @@
 # DD
-Defect Detection!
+DD: Defect Detection.
