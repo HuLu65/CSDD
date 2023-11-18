@@ -1,2 +1,2 @@
-# DD
-DD: Defect Detection.
+# CSDD 
+CSDD: Chip Surface Defect Detection.
