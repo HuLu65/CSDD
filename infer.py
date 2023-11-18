@@ -24,13 +24,13 @@ def get_args_parser():
     parser.add_argument('--device', default='cuda', type=str, help='')
     parser.add_argument('--images_dir', default='dataset/images', type=str, help='')
     parser.add_argument('--mae_model',default='mae_vit_base_patch14', type=str, help='')
-    parser.add_argument('--checkpoint_path', default='checkpoint/nuisance-20000-14/checkpoint-399.pth', type=str, help='')
+    parser.add_argument('--checkpoint_path', default='checkpoint-399.pth', type=str, help='')
     parser.add_argument('--build_memory_bank', action='store_true', help='')
     parser.add_argument('--memory_bank_path', default='memory_bank/memory_bank_10.pth', type=str, help='')
     parser.add_argument('--support_images_dir', default='memory_bank/support_images_10', type=str, help='')
     parser.add_argument('--results_dir', default='data/detect', type=str, help='')
-    parser.add_argument('--re_times', default=2, type=int, help='reconstruction times')
-    parser.add_argument('--mask_ratio', default=0.5, type=float, help='')
+    parser.add_argument('--re_times', default=1, type=int, help='reconstruction times')
+    parser.add_argument('--mask_ratio', default=0.25, type=float, help='')
     parser.add_argument('--knn', default=3, type=int, help='KNN')
     parser.add_argument('--eval', action='store_true', help='')
     parser.add_argument('--save_txt', action='store_true', help='save the result txt files')
@@ -127,16 +127,10 @@ def main(args):
     if args.eval:
         evaluate_predictions(
         pred_labels_path=args.results_dir+'/labels',
-        gt_folder='/data2/huali/MAE_V2/dataset/labels',
-        gt_coco_file="/data2/huali/MAE_V2/data/coco/coco_gt.json",
-        pred_coco_file="/data2/huali/MAE_V2/data/coco/coco_dt.json",
-        class_id_to_name={
-            4.0: '4',
-            6.0: '6',
-            8.0: '8',
-            10.0: '10',
-            12.0: '12'
-        }
+        gt_folder='dataset/labels',
+        gt_coco_file="coco/coco_gt.json",
+        pred_coco_file="coco/coco_dt.json",
+        class_id_to_name={1.0:'1', 2.0:'2', 3.0:'3', 4.0:'4', 5.0:'5'}
     )
         
             
