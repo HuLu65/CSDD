@@ -1,2 +1,2 @@
 # CSDD 
-CSDD: Chip Surface Defect Detection.
+The complete code will be available for release shortly.
